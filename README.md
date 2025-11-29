@@ -12,7 +12,7 @@ The MARL environment [`predpregrass_base.py`](https://github.com/doesburg11/Pred
 
 <p align="center">
     <b>Random policy Predator-Prey-Grass PettingZoo environment</b></p>
-    <img align="center" src="../../../assets/images/gifs/predpreygrass_random.gif" width="1000" height="200"/>
+    <img align="center" src="./assets/images/gifs/predpreygrass_random.gif" width="1000" height="200"/>
 </p>
 
 #### Random policy with the PettingZoo framework
@@ -58,7 +58,7 @@ The MARL environment [`predpregrass_base.py`](https://github.com/doesburg11/Pred
 
 <p align="center">
     <b>Predator-Prey-Grass PettingZoo environment centralized trained using SB3's PPO</b></p>
-    <img src="../../../assets/images/gifs/predpreygrass.gif" width="1000" height="200"/>
+    <img src="./assets/images/gifs/predpreygrass.gif" width="1000" height="200"/>
 </p>
 
 ## Emergent Behaviors
@@ -71,5 +71,5 @@ Training the single objective environment [`predpregrass_base.py`](https://githu
 Moreover, these learning behaviors lead to more complex emergent dynamics at the ecosystem level. The trained agents are displaying a classic [Lotka–Volterra](https://en.wikipedia.org/wiki/Lotka%E2%80%93Volterra_equations) pattern over time:
 
 <p align="center">
-    <img src="../../../assets/images/readme/PredPreyPopulation_episode.png" width="450" height="270"/>
+    <img src="./assets/images/readme/PredPreyPopulation_episode.png" width="450" height="270"/>
 </p>
