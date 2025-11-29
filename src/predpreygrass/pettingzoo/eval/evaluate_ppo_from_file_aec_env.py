@@ -32,6 +32,7 @@ if __name__ == "__main__":
     num_episodes = env_kwargs["num_episodes"]
     env_fn = predpreygrass_aec_v0
     environment_name = str(env_fn.raw_env.metadata["name"])
+    training_steps_string = "11_468_800"
     model_file_name = f"{environment_name}_steps_{training_steps_string}"
     evaluation_directory = os.path.dirname(os.path.abspath(__file__))
     print("-----------------------------------------------------------------------------")
@@ -39,7 +40,7 @@ if __name__ == "__main__":
     destination_source_code_dir = up(up(__file__))  # up 2 levels in directory tree
     print("Destination_source_code_dir: ", destination_source_code_dir)
     print("-----------------------------------------------------------------------------")
-    output_directory = destination_source_code_dir + "/output/"
+    output_directory = destination_source_code_dir + "/trained_policy/"
     loaded_policy = output_directory + model_file_name
     render_mode = "human" if watch_grid_model else None
 
