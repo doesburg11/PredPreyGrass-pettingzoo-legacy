@@ -6,7 +6,7 @@
 The MARL environment [`predpregrass_base.py`](https://github.com/doesburg11/PredPreyGrass/blob/main/src/predpreygrass/pettingzoo/envs/predpreygrass_base.py) is implemented using **PettingZoo**, and the agents are trained using **Stable-Baselines3 (SB3) PPO**. Essentially this solution demonstrates how SB3 can be adapted for MARL using parallel environments and **centralized training**. Rewards (stepping, eating, dying and reproducing) are aggregated and can be adjusted in the [environment configuration](https://github.com/doesburg11/PredPreyGrass/blob/main/src/predpreygrass/pettingzoo/config/config_predpreygrass.py) file. Stable Baseline3 is originally designed for single-agent training. This means that in this solution, training utilizes only one unified network for Predators as well Prey. See further below how SB3 PPO is used in this centralilzed trained Predator-Prey-Grass multi-agent setting.
 
 <p align="center">
-    <img src="../../../assets/images/readme/predpreygrass.png" width="700" height="80"/>
+    <img src="../assets/images/readme/predpreygrass.png" width="700" height="80"/>
 </p>
 
 
