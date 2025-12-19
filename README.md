@@ -3,7 +3,7 @@
 ## Legacy framework: PettingZoo & Stable Baselines3 framework
 
 ### Centralized training, decentralized evaluation
-The MARL environment [`predpregrass_base.py`](./src/predpreygrass/pettingzoo/envs/predpreygrass_base.py) is implemented using **PettingZoo**, and the agents are trained using **Stable-Baselines3 (SB3) PPO**. Essentially this solution demonstrates how SB3 can be adapted for MARL using parallel environments and **centralized training**. Rewards (stepping, eating, dying and reproducing) are aggregated and can be adjusted in the [environment configuration](https://github.com/doesburg11/PredPreyGrass/blob/main/src/predpreygrass/pettingzoo/config/config_predpreygrass.py) file. Stable Baseline3 is originally designed for single-agent training. This means that in this solution, training utilizes only one unified network for Predators as well Prey. See further below how SB3 PPO is used in this centralilzed trained Predator-Prey-Grass multi-agent setting.
+The MARL environment [`predpregrass_base.py`](./src/predpreygrass/pettingzoo/envs/predpreygrass_base.py) is implemented using **PettingZoo**, and the agents are trained using **Stable-Baselines3 (SB3) PPO**. Essentially this solution demonstrates how SB3 can be adapted for MARL using parallel environments and **centralized training**. Rewards (stepping, eating, dying and reproducing) are aggregated and can be adjusted in the [environment configuration](./src/predpreygrass/pettingzoo/config/config_predpreygrass.py) file. Stable Baseline3 is originally designed for single-agent training. This means that in this solution, training utilizes only one unified network for Predators as well Prey. See further below how SB3 PPO is used in this centralilzed trained Predator-Prey-Grass multi-agent setting.
 
 <p align="center">
     <img src="./assets/images/readme/predpreygrass.png" width="700" height="80"/>
@@ -16,28 +16,28 @@ The MARL environment [`predpregrass_base.py`](./src/predpreygrass/pettingzoo/env
 </p>
 
 #### Random policy with the PettingZoo framework
-- [`src/predpreygrass/pettingzoo/eval/evaluate_random_policy.py`](https://github.com/doesburg11/PredPreyGrass/blob/main/src/predpreygrass/pettingzoo/eval/evaluate_random_policy.py)
+- [`src/predpreygrass/pettingzoo/eval/evaluate_random_policy.py`](./src/predpreygrass/pettingzoo/eval/evaluate_random_policy.py)
 
 #### Training model using PPO from stable baselines3
-- [```src/predpreygrass/pettingzoo/train/train_sb3_ppo_parallel_wrapped_aec_env.py```](https://github.com/doesburg11/PredPreyGrass/blob/main/src/predpreygrass/pettingzoo/train/train_sb3_ppo_parallel_wrapped_aec_env.py)
+- [```src/predpreygrass/pettingzoo/train/train_sb3_ppo_parallel_wrapped_aec_env.py```](./src/predpreygrass/pettingzoo/train/train_sb3_ppo_parallel_wrapped_aec_env.py)
 
 
 #### Configuration environment parameters
-- [`src/predpreygrass/pettingzoo/config/config_predpreygrass.py`](https://github.com/doesburg11/PredPreyGrass/blob/main/src/predpreygrass/pettingzoo/config/config_predpreygrass.py)
+- [`src/predpreygrass/pettingzoo/config/config_predpreygrass.py`](./src/predpreygrass/pettingzoo/config/config_predpreygrass.py)
 
 
 #### Evaluate and visualize trained model
-- [```src/predpreygrass/pettingzoo/eval/evaluate_ppo_from_file_aec_env.py```](https://github.com/doesburg11/PredPreyGrass/blob/main/src/predpreygrass/pettingzoo/eval/evaluate_ppo_from_file_aec_env.py)
+- [```src/predpreygrass/pettingzoo/eval/evaluate_ppo_from_file_aec_env.py```](./src/predpreygrass/pettingzoo/eval/evaluate_ppo_from_file_aec_env.py)
 
 #### Batch training and evaluating in one go:
-- [```src/predpreygrass/pettingzoo/eval/parameter_variation_train_wrapped_to_parallel_and_evaluate_aec.py```](https://github.com/doesburg11/PredPreyGrass/blob/main/src/predpreygrass/pettingzoo/eval/parameter_variation_train_wrapped_to_parallel_and_evaluate_aec.py)
+- [```src/predpreygrass/pettingzoo/eval/parameter_variation_train_wrapped_to_parallel_and_evaluate_aec.py```](./src/predpreygrass/pettingzoo/eval/parameter_variation_train_wrapped_to_parallel_and_evaluate_aec.py)
 
 
 ### How SB3 PPO is used in the Predator-Prey-Grass Multi-Agent Setting
 
 #### 1. PettingZoo AEC to Parallel Conversion
-- The environment is initially implemented as an **Agent-Environment-Cycle (AEC) environment** using **PettingZoo** ([`predpregrass_aec.py`](https://github.com/doesburg11/PredPreyGrass/blob/main/src/predpreygrass/pettingzoo/envs/predpreygrass_aec.py) which inherits from [`predpregrass_base.py`](https://github.com/doesburg11/PredPreyGrass/blob/main/src/predpreygrass/pettingzoo/envs/predpreygrass_base.py)).
-- It is wrapped and converted into a **Parallel Environment** using `aec_to_parallel()` inside [`trainer.py`](https://github.com/doesburg11/PredPreyGrass/blob/main/src/predpreygrass/pettingzoo/train/utils/trainer.py).
+- The environment is initially implemented as an **Agent-Environment-Cycle (AEC) environment** using **PettingZoo** ([`predpregrass_aec.py`](./src/predpreygrass/pettingzoo/envs/predpreygrass_aec.py) which inherits from [`predpregrass_base.py`](./src/predpreygrass/pettingzoo/envs/predpreygrass_base.py)).
+- It is wrapped and converted into a **Parallel Environment** using `aec_to_parallel()` inside [`trainer.py`](./src/predpreygrass/pettingzoo/train/utils/trainer.py).
 - This conversion enables multiple agents to take actions simultaneously rather than sequentially.
 
 #### 2. Treating Multi-Agent Learning as a Single-Agent Problem
@@ -62,7 +62,7 @@ The MARL environment [`predpregrass_base.py`](./src/predpreygrass/pettingzoo/env
 </p>
 
 ## Emergent Behaviors
-Training the single objective environment [`predpregrass_base.py`](https://github.com/doesburg11/PredPreyGrass/blob/main/src/predpreygrass/pettingzoo/envs/predpreygrass_base.py) with the SB3 PPO algorithm is an example of how elaborate behaviors can emerge from simple rules in agent-based models. In the above displayed MARL example, rewards for learning agents are solely obtained by reproduction. So all other reward options are set to zero in the [environment configuration](https://github.com/doesburg11/PredPreyGrass/blob/main/src/predpreygrass/pettingzoo/config/config_predpreygrass.py). Despite this relativily sparse reward structure, maximizing these rewards results in elaborate emerging behaviors such as:
+Training the single objective environment [`predpregrass_base.py`](./src/predpreygrass/pettingzoo/envs/predpreygrass_base.py) with the SB3 PPO algorithm is an example of how elaborate behaviors can emerge from simple rules in agent-based models. In the above displayed MARL example, rewards for learning agents are solely obtained by reproduction. So all other reward options are set to zero in the [environment configuration](./src/predpreygrass/pettingzoo/config/config_predpreygrass.py). Despite this relativily sparse reward structure, maximizing these rewards results in elaborate emerging behaviors such as:
 - Predators hunting Prey
 - Prey finding and eating grass
 - Predators hovering around grass to catch Prey
